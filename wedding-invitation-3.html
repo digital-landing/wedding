@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adrian & Camille | Wedding Invitation</title>
+
+  <style>
+    :root {
+      --bg: #111111;
+      --bg-soft: #181818;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --text: #f5f2ed;
+      --muted: #c7beb5;
+      --gold: #d4b37a;
+      --gold-soft: #8f764b;
+      --white: #ffffff;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(212,179,122,0.08), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(212,179,122,0.06), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(52px, 8vw, 108px);
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 64px);
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border: 1px solid var(--gold);
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      transition: 0.3s ease;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn:hover {
+      background: var(--gold);
+      color: #111;
+    }
+
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(14px);
+      background: rgba(10,10,10,0.6);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      width: min(1180px, 92%);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 24px;
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 2px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .hero-content {
+      padding: 42px;
+      border-radius: 28px;
+    }
+
+    .hero-content p {
+      max-width: 620px;
+      margin-top: 18px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .hero-photo {
+      min-height: 680px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.2)),
+        url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      padding: 18px 22px;
+      border-radius: 18px;
+      max-width: 280px;
+      background: rgba(17,17,17,0.56);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-badge strong {
+      display: block;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .hero-badge span {
+      color: var(--white);
+      font-size: 16px;
+    }
+
+    /* INTRO CARDS */
+    .intro-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 46px;
+    }
+
+    .info-card {
+      padding: 30px 24px;
+      border-radius: 22px;
+    }
+
+    .info-card p {
+      font-size: 16px;
+    }
+
+    /* STORY */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .story-photo {
+      min-height: 560px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.15)),
+        url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=80");
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .story-card {
+      padding: 42px;
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* EVENT DETAILS */
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .detail-card {
+      padding: 34px 24px;
+      border-radius: 24px;
+      text-align: left;
+    }
+
+    .detail-icon {
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .detail-card p {
+      font-size: 16px;
+    }
+
+    /* GALLERY */
+    .gallery-header {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 46px;
+    }
+
+    .masonry {
+      column-count: 4;
+      column-gap: 14px;
+    }
+
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.85);
+    }
+
+    .gallery-item::after {
+      content: "View";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 11px;
+      background: rgba(0,0,0,0.28);
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    /* QUOTE */
+    .quote-box {
+      text-align: center;
+      padding: 60px 40px;
+      border-radius: 28px;
+    }
+
+    .quote-box h2 {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .quote-box p {
+      margin-top: 18px;
+    }
+
+    /* RSVP */
+    .rsvp-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .rsvp-info,
+    .rsvp-form-wrap {
+      border-radius: 28px;
+      padding: 36px;
+    }
+
+    .rsvp-info p {
+      margin-top: 12px;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 15px 16px;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #b8afa6;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    button {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111;
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #f0cd92;
+    }
+
+    .note {
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px 0 50px;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer .names {
+      color: var(--gold);
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 14px;
+    }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 24px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 4px solid rgba(255,255,255,0.16);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      color: var(--white);
+      font-size: 38px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+    }
+
+    .lightbox-controls {
+      position: absolute;
+      bottom: 24px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .lightbox-controls button {
+      width: auto;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .lightbox-controls button:hover {
+      background: rgba(255,255,255,0.24);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+      .hero-grid,
+      .story-grid,
+      .rsvp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-grid,
+      .details-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .masonry {
+        column-count: 3;
+      }
+
+      .hero-photo {
+        min-height: 540px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 14px;
+        font-size: 10px;
+      }
+
+      .hero-content,
+      .story-card,
+      .rsvp-info,
+      .rsvp-form-wrap,
+      .quote-box {
+        padding: 26px 20px;
+      }
+
+      .hero-photo,
+      .story-photo {
+        min-height: 400px;
+      }
+
+      .intro-grid,
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .masonry {
+        column-count: 1;
+      }
+
+      p {
+        font-size: 16px;
+      }
+
+      .lightbox img {
+        max-width: 94vw;
+        max-height: 74vh;
+      }
+
+      .lightbox-controls button {
+        padding: 10px 14px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">A & C</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#story">Story</a>
+        <a href="#details">Details</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#rsvp">RSVP</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content glass">
+        <div class="eyebrow">Together with their families</div>
+        <h1>Adrian & Camille</h1>
+        <p>
+          Request the honor of your presence as they celebrate their wedding day
+          and begin a new chapter of love, faith, and forever.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#gallery" class="btn">View Gallery</a>
+          <a href="#rsvp" class="btn">RSVP Now</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <div class="hero-badge">
+          <strong>Wedding Day</strong>
+          <span>February 14, 2027 · Tagaytay, Philippines</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Celebrate with us</div>
+      <h2>An invitation to our happiest day</h2>
+      <p style="max-width: 760px;">
+        We would be honored to share this joyful celebration with the people
+        who have supported, loved, and prayed for us through every season.
+      </p>
+
+      <div class="intro-grid">
+        <div class="info-card glass">
+          <h3>Elegant Invitation</h3>
+          <p>A digital wedding invitation that guests can easily view on phone, tablet, and desktop.</p>
+        </div>
+
+        <div class="info-card glass">
+          <h3>Prenup Gallery</h3>
+          <p>A beautiful space to feature your favorite prenup and wedding photos in one shareable website.</p>
+        </div>
+
+        <div class="info-card glass">
+          <h3>Easy to Share</h3>
+          <p>Send one link to family and friends instead of printing and distributing many invitations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section" id="story">
+    <div class="container story-grid">
+      <div class="story-photo"></div>
+
+      <div class="story-card glass">
+        <div class="eyebrow">Our Story</div>
+        <h2>From a simple hello to forever</h2>
+        <p>
+          Our story began with a simple connection and grew into something
+          beautiful through trust, laughter, and shared dreams.
+        </p>
+        <br />
+        <p>
+          This page is a small glimpse of our journey — the moments, the memories,
+          and the love that brought us to this special day.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DETAILS -->
+  <section class="section" id="details">
+    <div class="container">
+      <div class="eyebrow">Wedding Details</div>
+      <h2>When & Where</h2>
+      <p>Please join us as we exchange vows and celebrate with family and friends.</p>
+
+      <div class="details-grid">
+        <div class="detail-card glass">
+          <div class="detail-icon">✦</div>
+          <h3>Ceremony</h3>
+          <p>2:30 PM</p>
+          <p>San Sebastian Cathedral</p>
+          <p>Tagaytay City, Cavite</p>
+        </div>
+
+        <div class="detail-card glass">
+          <div class="detail-icon">❦</div>
+          <h3>Reception</h3>
+          <p>5:00 PM</p>
+          <p>The Old Grove Farmstead</p>
+          <p>Tagaytay City, Cavite</p>
+        </div>
+
+        <div class="detail-card glass">
+          <div class="detail-icon">✧</div>
+          <h3>Dress Code</h3>
+          <p>Formal / Semi-formal</p>
+          <p>Champagne, Beige, Earth Tones</p>
+          <p>Kindly avoid white</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <div class="eyebrow">Our Photo Gallery</div>
+        <h2>20 Beautiful Moments</h2>
+        <p>
+          A different layout using the same photo gallery set.
+          Tap or click any image to view it larger.
+        </p>
+      </div>
+
+      <div class="masonry">
+        <div class="gallery-item" onclick="openLightbox(0)">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Photo 1">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(1)">
+          <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80" alt="Photo 2">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(2)">
+          <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80" alt="Photo 3">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(3)">
+          <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=80" alt="Photo 4">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(4)">
+          <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" alt="Photo 5">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(5)">
+          <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=900&q=80" alt="Photo 6">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(6)">
+          <img src="https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=900&q=80" alt="Photo 7">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(7)">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80" alt="Photo 8">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(8)">
+          <img src="https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=900&q=80" alt="Photo 9">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(9)">
+          <img src="https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=900&q=80" alt="Photo 10">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(10)">
+          <img src="https://images.unsplash.com/photo-1509610973147-232dfea52a97?auto=format&fit=crop&w=900&q=80" alt="Photo 11">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(11)">
+          <img src="https://images.unsplash.com/photo-1604017011826-d3b4c23f8914?auto=format&fit=crop&w=900&q=80" alt="Photo 12">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(12)">
+          <img src="https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21e?auto=format&fit=crop&w=1200&q=80" alt="Photo 13">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(13)">
+          <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=900&q=80" alt="Photo 14">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(14)">
+          <img src="https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?auto=format&fit=crop&w=900&q=80" alt="Photo 15">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(15)">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1200&q=80" alt="Photo 16">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(16)">
+          <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=900&q=80" alt="Photo 17">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(17)">
+          <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80" alt="Photo 18">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(18)">
+          <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1200&q=80" alt="Photo 19">
+        </div>
+        <div class="gallery-item" onclick="openLightbox(19)">
+          <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=900&q=80" alt="Photo 20">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="section">
+    <div class="container">
+      <div class="quote-box glass">
+        <div class="eyebrow">A Love to Remember</div>
+        <h2>“Every love story is beautiful, but ours is my favorite.”</h2>
+        <p>Adrian & Camille</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="section" id="rsvp">
+    <div class="container rsvp-grid">
+      <div class="rsvp-info glass">
+        <div class="eyebrow">Kindly Respond</div>
+        <h2>RSVP</h2>
+        <p>Please let us know if you can celebrate this special day with us.</p>
+        <br />
+        <p><strong style="color: var(--gold);">Date:</strong> February 14, 2027</p>
+        <p><strong style="color: var(--gold);">Location:</strong> Tagaytay City, Philippines</p>
+        <p><strong style="color: var(--gold);">Attire:</strong> Formal / Semi-formal</p>
+      </div>
+
+      <div class="rsvp-form-wrap glass">
+        <form onsubmit="sendRSVP(event)">
+          <input type="text" id="guestName" placeholder="Your full name" required />
+
+          <select id="attendance" required>
+            <option value="">Will you attend?</option>
+            <option value="Yes, I will attend">Yes, I will attend</option>
+            <option value="Sorry, I cannot attend">Sorry, I cannot attend</option>
+          </select>
+
+          <select id="guests" required>
+            <option value="">Number of guests</option>
+            <option value="1">1 guest</option>
+            <option value="2">2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+          </select>
+
+          <textarea id="message" placeholder="Message for the couple"></textarea>
+
+          <button type="submit">Submit RSVP</button>
+
+          <p class="note">
+            Demo version uses email RSVP. Replace the email in the script below for actual client use.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="names">Adrian & Camille</div>
+      <p>Thank you for being part of our special day.</p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img id="lightboxImage" src="" alt="Expanded photo">
+    <div class="lightbox-controls">
+      <button onclick="previousPhoto()">Previous</button>
+      <button onclick="nextPhoto()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const photos = [
+      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1529634597503-139d3726fed5?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1494955870715-979ca4f13bf0?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1525258946800-98cfd641d0de?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1509610973147-232dfea52a97?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1604017011826-d3b4c23f8914?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21e?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1400&q=90"
+    ];
+
+    let currentPhoto = 0;
+
+    function openLightbox(index) {
+      currentPhoto = index;
+      document.getElementById("lightboxImage").src = photos[currentPhoto];
+      document.getElementById("lightbox").classList.add("active");
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").classList.remove("active");
+    }
+
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      document.getElementById("lightboxImage").src = photos[currentPhoto];
+    }
+
+    function previousPhoto() {
+      currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+      document.getElementById("lightboxImage").src = photos[currentPhoto];
+    }
+
+    document.addEventListener("keydown", function(event) {
+      const lightbox = document.getElementById("lightbox");
+      if (!lightbox.classList.contains("active")) return;
+
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowRight") nextPhoto();
+      if (event.key === "ArrowLeft") previousPhoto();
+    });
+
+    document.getElementById("lightbox").addEventListener("click", function(event) {
+      if (event.target.id === "lightbox") closeLightbox();
+    });
+
+    function sendRSVP(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("guestName").value;
+      const attendance = document.getElementById("attendance").value;
+      const guests = document.getElementById("guests").value;
+      const message = document.getElementById("message").value;
+
+      const subject = encodeURIComponent("Wedding RSVP - " + name);
+      const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Attendance: " + attendance + "\n" +
+        "Number of guests: " + guests + "\n" +
+        "Message: " + message
+      );
+
+      window.location.href = "mailto:couple@example.com?subject=" + subject + "&body=" + body;
+    }
+  </script>
+
+</body>
+</html>
