@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Wedding Invitations | Beautiful Digital Wedding Templates</title>
+    <style>
+        /* === RESET & BASE STYLES === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Playfair Display', Georgia, serif; 
+            line-height: 1.7; 
+            color: #4a4a4a;
+            background: #fff9f5;
+        }
+        a { text-decoration: none; color: inherit; }
+
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400&display=swap');
+
+        /* === NAVIGATION === */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 1.5em; font-weight: 700; color: #d4af37; letter-spacing: 2px; }
+        .nav-links a {
+            margin-left: 2rem;
+            color: #555;
+            transition: color 0.3s;
+            font-family: 'Lato', sans-serif;
+        }
+        .nav-links a:hover { color: #d4af37; }
+        .cta-btn {
+            background: #d4af37;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-family: 'Lato', sans-serif;
+        }
+        .cta-btn:hover { background: #b89628; transform: translateY(-2px); }
+
+        /* === HERO SECTION === */
+        header.hero {
+            /* Romantic bride & groom image */
+            background: linear-gradient(rgba(139, 69, 19, 0.4), rgba(139, 69, 19, 0.4)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 8rem 5%;
+            text-align: center;
+        }
+        header h1 { 
+            font-size: 3em; 
+            margin-bottom: 1.5rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 3px;
+        }
+        header p { 
+            font-size: 1.3em; 
+            max-width: 700px; 
+            margin: 0 auto 2.5rem; 
+            opacity: 0.95;
+            font-family: 'Lato', sans-serif;
+        }
+        header .hero-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        header .btn-primary {
+            background: #d4af37;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+        }
+        header .btn-secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+        }
+        header .btn-primary:hover { background: #b89628; }
+        header .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+
+        /* === SERVICES SECTION === */
+        .services { 
+            padding: 5rem 5%; 
+            text-align: center; 
+            background: linear-gradient(to bottom, #fff9f5, #f8f0e8);
+        }
+        .services h2 { 
+            font-size: 2.5em; 
+            margin-bottom: 1rem; 
+            color: #4a4a4a;
+            font-weight: 400;
+        }
+        .services .subtitle {
+            font-family: 'Lato', sans-serif;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 1px solid #f0e6dd;
+        }
+        .service-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+        .service-icon { 
+            font-size: 3em; 
+            margin-bottom: 1.5rem; 
+            display: block;
+        }
+        .service-card h3 { 
+            margin-bottom: 1rem; 
+            color: #4a4a4a;
+            font-weight: 600;
+        }
+        .service-card p { 
+            color: #666;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /* === PORTFOLIO SECTION === */
+        .portfolio { 
+            padding: 5rem 5%; 
+            background: white; 
+            text-align: center;
+        }
+        .portfolio h2 { 
+            font-size: 2.5em; 
+            margin-bottom: 1rem; 
+            color: #4a4a4a;
+            font-weight: 400;
+        }
+        .portfolio .subtitle {
+            font-family: 'Lato', sans-serif;
+            color: #777;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .invitation-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        .invitation-card:hover { 
+            transform: scale(1.03); 
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.25);
+        }
+        .invitation-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        .invitation-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .invitation-card:hover .invitation-img img {
+            transform: scale(1.1);
+        }
+        .invitation-details { 
+            padding: 2rem 1.5rem; 
+            text-align: left; 
+            background: #fff9f5;
+        }
+        .invitation-details h3 { 
+            margin-bottom: 0.5rem; 
+            color: #4a4a4a;
+            font-weight: 600;
+        }
+        .invitation-details p { 
+            color: #666; 
+            font-size: 0.95em; 
+            margin-bottom: 1rem;
+            font-family: 'Lato', sans-serif;
+        }
+        .invitation-date { 
+            color: #d4af37; 
+            font-weight: bold; 
+            font-size: 1.1em; 
+            font-family: 'Lato', sans-serif;
+        }
+        .view-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            background: #d4af37;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 25px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+        }
+
+        /* === TESTIMONIALS === */
+        .testimonials {
+            padding: 5rem 5%;
+            background: linear-gradient(to bottom, #f8f0e8, #fff9f5);
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 3rem;
+            color: #4a4a4a;
+            font-weight: 400;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: """;
+            font-size: 5em;
+            color: #d4af37;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            opacity: 0.3;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-family: 'Lato', sans-serif;
+            color: #555;
+        }
+        .testimonial-author {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* === CTA SECTION === */
+        .cta-section {
+            /* Romantic couple holding hands close-up */
+            background: linear-gradient(rgba(139, 69, 19, 0.7), rgba(139, 69, 19, 0.7)), 
+                        url('https://images.unsplash.com/photo-1511285560982-1351cdeb9821?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+        .cta-section h2 { 
+            font-size: 2.5em; 
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        .cta-section p { 
+            max-width: 600px; 
+            margin: 0 auto 2.5rem; 
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1em;
+        }
+        .cta-section .btn-white {
+            background: white;
+            color: #d4af37;
+            padding: 1.2rem 2.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            font-family: 'Lato', sans-serif;
+            letter-spacing: 1px;
+        }
+        .cta-section .btn-white:hover { 
+            background: #f8f8f8; 
+            transform: translateY(-2px);
+        }
+
+        /* === FOOTER === */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        footer p { opacity: 0.8; font-family: 'Lato', sans-serif; margin-bottom: 1rem; }
+        footer a { color: #d4af37; }
+        footer a:hover { text-decoration: underline; }
+
+        /* === MOBILE RESPONSIVE === */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; }
+            .nav-links a { margin: 0 0.5rem; }
+            header h1 { font-size: 2em; letter-spacing: 1px; }
+            header p { font-size: 1.1em; }
+            header .hero-btns { flex-direction: column; align-items: center; }
+            .services h2 { font-size: 2em; }
+            .portfolio h2 { font-size: 2em; }
+            .testimonials h2 { font-size: 2em; }
+            .cta-section h2 { font-size: 1.8em; }
+            .invitation-img { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">✨ Bella Weddings</div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#testimonials">Reviews</a>
+            <a href="#contact" class="cta-btn">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Beautiful Digital Wedding Invitations</h1>
+        <p>Create timeless, elegant invitation pages that your guests will love. Fully customizable, mobile-friendly, and perfect for modern couples.</p>
+        <div class="hero-btns">
+            <a href="#portfolio" class="btn-primary">View Our Work</a>
+            <a href="#contact" class="btn-secondary">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>What We Create For You</h2>
+        <p class="subtitle">Every couple deserves a unique story told beautifully</p>
+        <div class="service-grid">
+            <div class="service-card">
+                <span class="service-icon">📱</span>
+                <h3>Mobile-First Design</h3>
+                <p>90% of guests view invitations on their phones. We ensure flawless displays on every device.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">💌</span>
+                <h3>RSV P Tracking</h3>
+                <p>Integrated RSVP forms so you can track responses easily without spreadsheets or chaos.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🎨</span>
+                <h3>Custom Branding</h3>
+                <p>Your colors, fonts, and style—reflecting your personality and wedding theme perfectly.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔗</span>
+                <h3>Easy Sharing</h3>
+                <p>One simple link to share via WhatsApp, email, or social media. No printing needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <h2>Featured Wedding Invitations</h2>
+        <p class="subtitle">See how we've helped couples celebrate their special day</p>
+        <div class="portfolio-grid">
+            
+            <!-- Wedding 1: Garden Romance -->
+            <div class="invitation-card">
+                <div class="invitation-img">
+                    <img src="https://images.unsplash.com/photo-1522673607200-1645062cd958?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garden Romance Wedding">
+                </div>
+                <div class="invitation-details">
+                    <h3>Alice & Michael</h3>
+                    <p>Garden Estate, Napa Valley</p>
+                    <span class="invitation-date">June 20, 2027 • 4:00 PM</span>
+                    <br>
+                    <a href="/wedding-template/clients/alice-michael/" class="view-btn">View Invitation</a>
+                </div>
+            </div>
+
+            <!-- Wedding 2: Beach Elegance -->
+            <div class="invitation-card">
+                <div class="invitation-img">
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beach Wedding">
+                </div>
+                <div class="invitation-details">
+                    <h3>Sophia & James</h3>
+                    <p>Malibu Beach Resort</p>
+                    <span class="invitation-date">August 15, 2027 • 5:30 PM</span>
+                    <br>
+                    <a href="/wedding-template/clients/sophia-james/" class="view-btn">View Invitation</a>
+                </div>
+            </div>
+
+            <!-- Wedding 3: Classic Church -->
+            <div class="invitation-card">
+                <div class="invitation-img">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0202128?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Classic Church Wedding">
+                </div>
+                <div class="invitation-details">
+                    <h3>Emma & William</h3>
+                    <p>St. Mary's Cathedral</p>
+                    <span class="invitation-date">October 5, 2027 • 3:00 PM</span>
+                    <br>
+                    <a href="/wedding-template/clients/emma-william/" class="view-btn">View Invitation</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What Couples Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">Absolutely stunning! Our family and friends were so impressed. The online format made sharing with everyone abroad so easy!</p>
+                <span class="testimonial-author">— Jessica & Ryan</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">The best decision we made for our wedding. Easy to customize and look more expensive than traditional printed invitations.</p>
+                <span class="testimonial-author">— Maria & Carlos</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">Professional, fast, and gorgeous. They captured our exact vision and delivered beyond expectations. Highly recommend!</p>
+                <span class="testimonial-author">— Lauren & David</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="cta-section">
+        <h2>Let's Create Your Dream Invitation</h2>
+        <p>Start your journey with us today. We're here to make your special day unforgettable from the very first invite.</p>
+        <a href="mailto:hello@bellaweddings.com" class="btn-white">Start Your Project</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Bella Wedding Invitations. All rights reserved.</p>
+        <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Contact Support</a></p>
+    </footer>
+</body>
+</html>
